@@ -26,3 +26,21 @@ It also includes secondary functions that are used to make the principal functio
 
 - prepareMessage ( ): puts to LOW state all the board pins that are used to communicate with the LCD display. Therefore, all pins are ready to be set in HIGH state if the next command/message requires it. This function is called before preparing a command/message that is wanted to be sent.
 - sendMessage ( ): executes the sequence that tells the LCD display to read the command/message that is being sent.
+
+<details open>
+
+<summary><h3 style="display: inline;">Example of usage<h3></summary>
+
+This section shows how this library can be used, starting with the initialization of the 1602a LCD display and ending with the use of some functions.
+
+```
+
+LCD_Init();
+sendCommand(HOME);
+writeWord('Temperature: ');
+setPosition(1,14);
+writeWord('23');
+Delay_HAL(5000);
+sendCommand(CLEAR);
+
+```
